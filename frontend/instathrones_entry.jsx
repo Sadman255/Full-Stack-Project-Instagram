@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 
 import Root from './components/root';
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
    
-    // let store; 
+    let store; 
 
     //   if (window.currentUser) {
     //       const preloadedState = {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //       store = configureStore(preloadedState)
     //       delete window.currentUser
     //   }else{
-    //       store = configureStore()
+          store = configureStore()
     //   }
 
       const root = document.getElementById('root')
