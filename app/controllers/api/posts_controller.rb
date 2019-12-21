@@ -1,4 +1,4 @@
-class Api:PostsController < ApplicationController
+class Api::PostsController < ApplicationController
 
     before_action :require_login
 
@@ -26,7 +26,7 @@ class Api:PostsController < ApplicationController
         if @post.save 
             render :show 
         else  
-            render json: @post.errors.full_messages 
+            render json: @post.errors.full_messages,status: 422 
         end
     end
     
@@ -36,7 +36,7 @@ class Api:PostsController < ApplicationController
         if @post.update(post_params)
                 render :show 
         else  
-            render json: @post.errors.full_messages 
+            render json: @post.errors.full_messages,status: 422 
         end
     end
 
