@@ -364,25 +364,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "login-left-image-inner",
         src: "https://www.instagram.com/static/images/homepage/screenshot1.jpg/d6bf0c928b5a.jpg"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "login-left-image-inner-2 animate-4",
-        src: "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/51927970_10215695567636147_8267136154386563072_n.jpg?_nc_cat=103&_nc_oc=AQmpFJdbeJUBpM1sLRFgRB29_HB_g2vrgwfZCWKl5IVIyibP_ZnSxhH_TQFrWQdHH0k&_nc_ht=scontent-mia3-2.xx&oh=b07bff905198809c25dd16835fb550a5&oe=5DD389B5"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "cf2",
-        className: "shadow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "login-left-image-inner-2 animate-1",
-        src: "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/66688041_10156630905828869_3803633809115578368_n.jpg?_nc_cat=107&_nc_oc=AQmUvIqFtdAbDw2at6yiR1qIpXnLFV759n52bBC86256OSkarfL765O-GOyLGkc5h-U&_nc_ht=scontent-mia3-2.xx&oh=c10fcd34f4f48c731a3f01c5e634a35c&oe=5DCF24FB"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "login-left-image-inner-2 animate-2",
-        src: "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/66584318_10216687664477948_8152920814933508096_n.jpg?_nc_cat=102&_nc_oc=AQnEPH6-7NxFpkyMnw_BXmTU2rzKrFZBSczf4Z-Hoi6Nvnke87caQJHW3OFvd9LIcAI&_nc_ht=scontent-mia3-2.xx&oh=9be3dd7aeb2785cfde4691c9b4f0d4b2&oe=5DAA76BD"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "login-left-image-inner-2 animate-3",
-        src: "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/37882332_10155881975238869_8318631768588550144_n.jpg?_nc_cat=107&_nc_oc=AQns_rI6VxL2rBbvuL44bUcRTC73TILaKb3qw9DUFDcBCt8RwJnLoSXtQIR4GCJX7eI&_nc_ht=scontent-mia3-2.xx&oh=f515a3b48038980610c47661af5ef627&oe=5DA3CB1A"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "login-left-image-inner-2 animate-4",
-        src: "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/51927970_10215695567636147_8267136154386563072_n.jpg?_nc_cat=103&_nc_oc=AQmpFJdbeJUBpM1sLRFgRB29_HB_g2vrgwfZCWKl5IVIyibP_ZnSxhH_TQFrWQdHH0k&_nc_ht=scontent-mia3-2.xx&oh=b07bff905198809c25dd16835fb550a5&oe=5DD389B5"
-      })));
+      }));
     }
   }]);
 
@@ -880,18 +862,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var store; //   if (window.currentUser) {
-  //       const preloadedState = {
-  //            session: {id: window.currentUser.id},
-  //              entities: {
-  //                  users: { [window.currentUser.id]: window.currentUser}
-  //              }
-  //       }
-  //       store = configureStore(preloadedState)
-  //       delete window.currentUser
-  //   }else{
+  var store; //       if (window.currentUser) {
+  //            const preloadedState = {
+  //                session: {id: window.currentUser.id},
+  //                  entities: {
+  //                      users: { [window.currentUser.id]: window.currentUser}
+  //                  }
+  //           }
+  //           store = configureStore(preloadedState)
+  //           delete window.currentUser
+  // }else{
 
-  store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); //   }
+  store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); //  }
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1071,6 +1053,7 @@ var usersReducer = function usersReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.user.id, action.user));
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
+      debugger;
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
 
     case _actions_users_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_USER"]:
@@ -37197,7 +37180,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

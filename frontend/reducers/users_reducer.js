@@ -15,7 +15,8 @@ const usersReducer = (state = {}, action) =>{
           return merge({},state,action.users)
         case RECEIVE_USER: 
           return merge({},state,{[action.user.id]: action.user})
-        case RECEIVE_CURRENT_USER: 
+        case RECEIVE_CURRENT_USER:
+          debugger
           return merge({},state,{[action.currentUser.id]: action.currentUser})
         case REMOVE_USER: 
            delete newState[action.user.id]
