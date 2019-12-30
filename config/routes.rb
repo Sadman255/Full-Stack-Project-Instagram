@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do 
     resources :users, only: [:create, :show, :update, :index, :destroy]  
     resource :session, only: [:create, :destroy, :show]
-    resources :posts, only: [:create, :show, :update, :destroy]
+    resources :posts, only: [:create, :show, :update, :destroy] do 
+      resources :comments, only: [:index]
+    end
+    resources :comments, only: [:create,:destroy,:show]
+
+    get 'profile/posts/:id', :to => 'posts#profile_posts'
   end
    
 end

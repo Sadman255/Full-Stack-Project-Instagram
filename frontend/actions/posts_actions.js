@@ -54,3 +54,8 @@ export const deletePost = id => dispatch(
     PostAPIUtil.deletePost(id)
      .then(post => dispatch(removePost(post.id)))
 )
+
+export const fetchProfilePosts = (userId) => dispatch => (
+    PostAPIUtil.fetchProfilePosts(userId)
+        .then(posts => dispatch(receiveAllPosts(posts)))
+);
