@@ -9,7 +9,9 @@ class PostForm extends React.Component {
             body: this.props.body,
             photo: this.props.photo,
             user_id: this.props.user_id,
-            fileFound: true
+            photoFile: null,
+            photoUrl: null,
+            foundFile:true
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
@@ -19,20 +21,26 @@ class PostForm extends React.Component {
     handleFile(e){
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
-
-        reader.onloaded = () => 
+        debugger
+        reader.onloadend = () => 
                this.setState({ photoUrl: reader.result, photoFile: file});
 
         if (file) {
+            debugger
             reader.readAsDataURL(file);
         }
         else{
-            this.setState({photoURL: "", photoProfile: null});
+            debugger
+            this.setState({photoURL: "", photoFile: null});
         }
     }
 
     handleSubmit(e) {
+        debugger;
         e.preventDefault();
+        debugger
+       
+        
         if(this.state.photoFile){
             const formData = new FormData();
             formData.append('post[body]',this.state.body)
@@ -41,13 +49,15 @@ class PostForm extends React.Component {
 
             this.props.createPost(formData)
                 .then(() => {
-                    this.props.history.push(`/my-profile`)
+                    this.props.history.push(`/`)
                 })
         }
         else{
-            this.setState({fileFound: false})
+            this.setState({foundFile: false})
         }
+        
     }
+
     update(field){
         return (e) => {
             this.setState({[field]: e.target.value})
@@ -55,16 +65,17 @@ class PostForm extends React.Component {
     }
 
     errors(){
-        if (! this.state.fileFound){
+        if (! this.state.foundFile){
             return (
                 <li className="no-file">
-                    No file uploaded
+                    No file found
                 </li>
             )
         }
     }
 
     handleCancel(e) {
+        debugger
         e.preventDefault();
         let path = `/users/${this.props.currentUser.id}`;
         this.props.history.push(path)

@@ -11,6 +11,12 @@ class User < ApplicationRecord
     has_many :posts,
         dependent: :destroy
 
+    has_one_attached :photo,
+        dependent: :destroy
+
+    has_many :comments,
+        dependent: :destroy
+
     attr_reader :password
 
     def self.find_by_credentials(username,password)

@@ -783,7 +783,9 @@ function (_React$Component) {
       body: _this.props.body,
       photo: _this.props.photo,
       user_id: _this.props.user_id,
-      fileFound: true
+      photoFile: null,
+      photoUrl: null,
+      foundFile: true
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
@@ -798,8 +800,9 @@ function (_React$Component) {
 
       var reader = new FileReader();
       var file = e.currentTarget.files[0];
+      debugger;
 
-      reader.onloaded = function () {
+      reader.onloadend = function () {
         return _this2.setState({
           photoUrl: reader.result,
           photoFile: file
@@ -807,11 +810,13 @@ function (_React$Component) {
       };
 
       if (file) {
+        debugger;
         reader.readAsDataURL(file);
       } else {
+        debugger;
         this.setState({
           photoURL: "",
-          photoProfile: null
+          photoFile: null
         });
       }
     }
@@ -820,7 +825,9 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
+      debugger;
       e.preventDefault();
+      debugger;
 
       if (this.state.photoFile) {
         var formData = new FormData();
@@ -828,11 +835,11 @@ function (_React$Component) {
         formData.append('post[user_id]', this.state.user_id);
         formData.append('post[photo]', this.state.photoFile);
         this.props.createPost(formData).then(function () {
-          _this3.props.history.push("/my-profile");
+          _this3.props.history.push("/");
         });
       } else {
         this.setState({
-          fileFound: false
+          foundFile: false
         });
       }
     }
@@ -848,15 +855,16 @@ function (_React$Component) {
   }, {
     key: "errors",
     value: function errors() {
-      if (!this.state.fileFound) {
+      if (!this.state.foundFile) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "no-file"
-        }, "No file uploaded");
+        }, "No file found");
       }
     }
   }, {
     key: "handleCancel",
     value: function handleCancel(e) {
+      debugger;
       e.preventDefault();
       var path = "/users/".concat(this.props.currentUser.id);
       this.props.history.push(path);
@@ -2614,23 +2622,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var store; //       if (window.currentUser) {
-  //            const preloadedState = {
-  //                session: {id: window.currentUser.id},
-  //                  entities: {
-  //                      users: { [window.currentUser.id]: window.currentUser}
-  //                  }
-  //           }
-  //           store = configureStore(preloadedState)
-  //           delete window.currentUser
-  // }else{
+  var store;
 
-  store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); //  }
+  if (window.currentUser) {
+    var preloadedState = {
+      session: {
+        id: window.currentUser.id
+      },
+      entities: {
+        users: _defineProperty({}, window.currentUser.id, window.currentUser)
+      }
+    };
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  }
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
