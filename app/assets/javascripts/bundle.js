@@ -800,7 +800,6 @@ function (_React$Component) {
 
       var reader = new FileReader();
       var file = e.currentTarget.files[0];
-      debugger;
 
       reader.onloadend = function () {
         return _this2.setState({
@@ -810,10 +809,8 @@ function (_React$Component) {
       };
 
       if (file) {
-        debugger;
         reader.readAsDataURL(file);
       } else {
-        debugger;
         this.setState({
           photoURL: "",
           photoFile: null
@@ -825,9 +822,7 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      debugger;
       e.preventDefault();
-      debugger;
 
       if (this.state.photoFile) {
         var formData = new FormData();
@@ -864,7 +859,6 @@ function (_React$Component) {
   }, {
     key: "handleCancel",
     value: function handleCancel(e) {
-      debugger;
       e.preventDefault();
       var path = "/users/".concat(this.props.currentUser.id);
       this.props.history.push(path);

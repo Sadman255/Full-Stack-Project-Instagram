@@ -21,24 +21,24 @@ class PostForm extends React.Component {
     handleFile(e){
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
-        debugger
+    
         reader.onloadend = () => 
                this.setState({ photoUrl: reader.result, photoFile: file});
 
         if (file) {
-            debugger
+          
             reader.readAsDataURL(file);
         }
         else{
-            debugger
+           
             this.setState({photoURL: "", photoFile: null});
         }
     }
 
     handleSubmit(e) {
-        debugger;
+      
         e.preventDefault();
-        debugger
+        
        
         
         if(this.state.photoFile){
@@ -75,7 +75,7 @@ class PostForm extends React.Component {
     }
 
     handleCancel(e) {
-        debugger
+       
         e.preventDefault();
         let path = `/users/${this.props.currentUser.id}`;
         this.props.history.push(path)
