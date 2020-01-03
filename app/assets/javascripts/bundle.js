@@ -1135,7 +1135,8 @@ function (_React$Component) {
           author = _this$props$post.author,
           body = _this$props$post.body,
           authorPhotoUrl = _this$props$post.authorPhotoUrl,
-          user_id = _this$props$post.user_id;
+          user_id = _this$props$post.user_id; //   authorPhotoUrl should be worked on
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement = {

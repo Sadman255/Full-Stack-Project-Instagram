@@ -109,7 +109,7 @@ class PostShow extends React.Component {
             authorPhotoUrl,
             user_id
         } = this.props.post;
-
+//   authorPhotoUrl should be worked on
         return (
             <div>
                 {this.renderErrors()}
