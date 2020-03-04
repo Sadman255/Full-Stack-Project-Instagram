@@ -1,0 +1,79 @@
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
+class NavSearch extends React.Component {
+
+    constructor(props) {
+
+        super(props)
+
+        this.state = {
+            searchField: "",
+            matchedUsers: []
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchUsers()
+    }
+   
+    componentDidUpdate(prevProps) {
+           if (prevProps.location.pathname !== this.props.location.pathname){
+                    this.setState({
+                        searchField: "",
+                        matchedUsers: []
+                })
+           }
+    }
+
+    update(field) {
+        return e => {
+            let matches = this.props.users 
+                            .filter(user => user.username.toLowerCase()
+                                     .includes(e.target.value.toLowerCase())
+                             )
+
+            if(!e.target.value) matches = [];
+
+            this.setState({
+                [field]: e.target.value,
+                matchedUsers: matches
+            })
+        }
+    }
+    
+    render() {
+
+        let userMatches = this.state.matchedUsers.map( user => {
+
+            return(
+                 <li className="search-result-li" key={user.id}>
+                     <Link  className="search-result-user" to={`/users/${user.id}`}>
+                        {/* <img  className="search-result-image" src={user.photoUrl}/> */}
+                        <div className="search-result-username">
+                            {user.username}
+                        </div>
+                     </Link>
+                 </li>
+
+            )
+        })
+
+        return(
+            <div className="search-with-results-wrap">
+
+            </div>
+        )
+
+
+        
+    }
+
+
+    
+    
+
+}
+
+export default withRouter(NavSearch)
