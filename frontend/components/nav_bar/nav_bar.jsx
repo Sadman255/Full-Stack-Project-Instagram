@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import NavSearchContainer from './nav_search_container'
 
 
 class NavBar extends React.Component {
@@ -29,7 +30,7 @@ class NavBar extends React.Component {
                 </div>
                 
                 <div className="nav-mid">
-                
+                    <NavSearchContainer />
                 </div>
 
                 <div className="nav-right">
@@ -40,7 +41,7 @@ class NavBar extends React.Component {
                     </div>
                     <div className="nav-right-profile">
                         <Link className="nav-icon" to={`/my-profile`}>
-                            <i className='fas fa-throne'></i>
+                            {/* <i className='fas fa-throne'></i> */}
                         </Link>
                     </div>
                 </div>

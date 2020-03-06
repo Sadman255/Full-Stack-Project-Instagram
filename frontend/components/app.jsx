@@ -4,6 +4,8 @@
 
  import LoginFormContainer from './user/user_auth/login_form_container';
  import SignUpFormContainer from './user/user_auth/signup_form_container';
+ 
+ import ExploreIndexContainer from './posts/feed/explore_container';
  import PostFormContainer from './posts/post/post_form_container';
  import MainProfileContainer from './user/profile/main_profile_container';
  import UserUpdateFormContainer from './user/edit_user/user_update_form_container';
@@ -24,6 +26,7 @@
                     <ProtectedRoute exact path="/new-post" component={PostFormContainer}/>
                     <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                     <ProtectedRoute exact path="/edit-profile" component={UserUpdateFormContainer} />
+                    <ProtectedRoute path="/explore" component={ExploreIndexContainer} /> 
                     <ProtectedRoute path="/" component={MainProfileContainer} />
              </Switch> 
      </div>

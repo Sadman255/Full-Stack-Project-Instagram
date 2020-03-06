@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create,:destroy,:show]
 
     get 'profile/posts/:id', :to => 'posts#profile_posts'
+    get 'explore/posts', :to => 'posts#explore_posts'
   end
    
 end

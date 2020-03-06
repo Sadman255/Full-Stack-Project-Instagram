@@ -32,6 +32,19 @@ export const clearErrors = () => ({
     errors: []
 })
 
+
+export const fetchExplorePosts = () => dispatch => (
+  PostAPIUtil.fetchExplorePosts()
+    .then(posts => dispatch(receiveAllPosts(posts)))
+
+);
+
+export const fetchProfilePosts = (userId) => dispatch => (
+    PostAPIUtil.fetchProfilePosts(userId)
+        .then(posts => dispatch(receiveAllPosts(posts)))
+
+)
+
 export const fetchPost = id => dispatch => {
     PostAPIUtil.fetchPost(id)
         .then(post => dispatch(receivePost(post)))
@@ -54,8 +67,3 @@ export const deletePost = id => dispatch(
     PostAPIUtil.deletePost(id)
      .then(post => dispatch(removePost(post.id)))
 )
-
-export const fetchProfilePosts = (userId) => dispatch => (
-    PostAPIUtil.fetchProfilePosts(userId)
-        .then(posts => dispatch(receiveAllPosts(posts)))
-);

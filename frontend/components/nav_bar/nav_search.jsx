@@ -62,11 +62,29 @@ class NavSearch extends React.Component {
 
         return(
             <div className="search-with-results-wrap">
+                <input
+                  className="user-search"
+                  type="text"
+                  placeholder="Search Users"
+                  onChange={this.update('searchField')}
+                //   value={this.state.searchField}
+                />
 
+                <div className="outer-results-wrap">
+                    {(this.state.matchedUsers.length > 0) ? (
+                        <div className="search-results-container">
+                            <div id="arrow"> </div>
+                            <ul className="search-results-list">
+                                {userMatches}
+                             </ul>
+                        </div>
+                    ): (
+                        <div> </div>
+                    )}
+
+                </div>
             </div>
         )
-
-
         
     }
 

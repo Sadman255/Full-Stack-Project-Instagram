@@ -83,7 +83,7 @@ class PostShow extends React.Component {
                     >
                         {comment.author}
                     </Link>
-                    <span className="comment-boyd">
+                    <span className="comment-body">
                         &nbsp;{comment.body}
                     </span>
                     {comment.user_id === this.props.currentUser.id ? (
