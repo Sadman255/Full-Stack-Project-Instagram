@@ -17,6 +17,9 @@ class User < ApplicationRecord
     has_many :comments,
         dependent: :destroy
 
+    has_many :likes,
+        dependent: :destroy
+
     attr_reader :password
 
     def self.find_by_credentials(username,password)

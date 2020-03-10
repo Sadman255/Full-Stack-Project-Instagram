@@ -1,0 +1,32 @@
+.like-button-div {
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    align-items: center;
+}
+
+.like-button {
+    padding-left: 8px;
+    padding-right: 5px;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    transform: scale(1.2, 1);
+}
+
+.like-button:hover {
+    cursor: pointer;
+}
+
+.like-button-liked {
+    color: red;
+
+}
+
+.like-button-unliked {
+    color: black;
+}
+
+.show-likecount {
+    padding-left: 8px;
+}

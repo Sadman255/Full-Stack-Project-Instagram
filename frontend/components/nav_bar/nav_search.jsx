@@ -1,97 +1,68 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { Link, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class NavSearch extends React.Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
+    this.state = {
+      searchCriteria: ""
+    };
+  }
 
-        super(props)
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
 
-        this.state = {
-            searchField: "",
-            matchedUsers: []
-        }
-    }
+  render() {
+    const { users } = this.props;
+    const { searchCriteria } = this.state;
 
-    componentDidMount() {
-        this.props.fetchUsers()
-    }
-   
-    componentDidUpdate(prevProps) {
-           if (prevProps.location.pathname !== this.props.location.pathname){
-                    this.setState({
-                        searchField: "",
-                        matchedUsers: []
-                })
-           }
-    }
+    const matches = users
+      .filter(user => user.username.toLowerCase().startsWith(searchCriteria))
+      .map(user => {
+        return (
+          <li
+            className="search-result-li"
+            key={user.id}
+            onClick={() => this.setState({ searchCriteria: "" })}
+          >
+            <Link className="search-result-user" to={`/users/${user.id}`}>
+              {/* <img  className="search-result-image" src={user.photoUrl}/> */}
+              <div className="search-result-username">{user.username}</div>
+            </Link>
+          </li>
+        );
+      });
 
-    update(field) {
-        return e => {
-            let matches = this.props.users 
-                            .filter(user => user.username.toLowerCase()
-                                     .includes(e.target.value.toLowerCase())
-                             )
-
-            if(!e.target.value) matches = [];
-
+    return (
+      <div className="search-with-results-wrap">
+        <input
+          className="user-search"
+          type="text"
+          placeholder="Search Users"
+          onChange={e =>
             this.setState({
-                [field]: e.target.value,
-                matchedUsers: matches
+              searchCriteria: (e.target.value || "").toLowerCase()
             })
-        }
-    }
-    
-    render() {
+          }
+          value={searchCriteria}
+        />
 
-        let userMatches = this.state.matchedUsers.map( user => {
-
-            return(
-                 <li className="search-result-li" key={user.id}>
-                     <Link  className="search-result-user" to={`/users/${user.id}`}>
-                        {/* <img  className="search-result-image" src={user.photoUrl}/> */}
-                        <div className="search-result-username">
-                            {user.username}
-                        </div>
-                     </Link>
-                 </li>
-
-            )
-        })
-
-        return(
-            <div className="search-with-results-wrap">
-                <input
-                  className="user-search"
-                  type="text"
-                  placeholder="Search Users"
-                  onChange={this.update('searchField')}
-                //   value={this.state.searchField}
-                />
-
-                <div className="outer-results-wrap">
-                    {(this.state.matchedUsers.length > 0) ? (
-                        <div className="search-results-container">
-                            <div id="arrow"> </div>
-                            <ul className="search-results-list">
-                                {userMatches}
-                             </ul>
-                        </div>
-                    ): (
-                        <div> </div>
-                    )}
-
-                </div>
+        <div className="outer-results-wrap">
+          {searchCriteria.length > 0 && matches.length > 0 ? (
+            <div className="search-results-container">
+              <div id="arrow"> </div>
+              <ul className="search-results-list">{matches}</ul>
             </div>
-        )
-        
-    }
-
-
-    
-    
-
+          ) : (
+            <div> </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default withRouter(NavSearch)
+export default withRouter(NavSearch);

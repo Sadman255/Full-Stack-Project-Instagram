@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :comments, only: [:create,:destroy,:show]
-
+    resources :likes, only: [:create, :destroy, :show]
     get 'profile/posts/:id', :to => 'posts#profile_posts'
     get 'explore/posts', :to => 'posts#explore_posts'
   end

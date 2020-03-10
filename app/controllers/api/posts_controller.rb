@@ -5,6 +5,8 @@ class Api::PostsController < ApplicationController
 
     def explore_posts 
         @posts = Post.all 
+        # // loop through posts and populate "userLikes" array with user_id by querying likes from database
+        # // get all likes that match post_id, then pick userId from it and push to userLikes prop on that specific post
         render :index
     end
 
