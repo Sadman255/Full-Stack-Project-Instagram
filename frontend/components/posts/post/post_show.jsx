@@ -164,7 +164,7 @@ class PostShow extends React.Component {
             <div className="post-show-likes">
               <div className="likes-div">
                 <div className="show-buttons">
-                  <LikesContainer post={this.props.post} likers={likers} />
+                  <LikesContainer id={this.props.post.id} />
                   {/* icon for comments should be implemented here */}
                 </div>
                 <div className="show-likecount">

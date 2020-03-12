@@ -12,3 +12,10 @@ json.comments post.comments do |comment|
     json.post_id comment.post_id
     json.id comment.id
 end
+
+json.likeIds post.like_ids
+json.likers post.likes do |like|
+    json.user_id like.user_id
+    json.post_id like.post_id
+    json.id like.id
+end

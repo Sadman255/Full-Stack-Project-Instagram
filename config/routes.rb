@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :posts, only: [:create, :show, :update, :destroy] do 
       resources :comments, only: [:index]
+      resources :likes, only: [:index]
     end
     resources :comments, only: [:create,:destroy,:show]
     resources :likes, only: [:create, :destroy, :show]

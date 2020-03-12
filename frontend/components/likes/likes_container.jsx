@@ -1,26 +1,18 @@
-import { connect } from 'react-redux';
-import {createLike, deleteLike } from '../../actions/likes_actions';
-import Likes from './likes';
-import { fetchPost } from '../../actions/posts_actions';
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import Likes from "./likes";
+import { createLike, deleteLike } from "../../actions/likes_actions";
+import { fetchPost } from "../../actions/posts_actions";
+import { getIsLikedPost } from "../../selectors/posts_selectors";
 
-const mapStateToProps = (state,ownProps) => {
-   
-    const currentUser = state.entities.users[state.session.id];
-    const post = ownProps.post
-    // debugger
-    return ({
-        currentUser,
-        post
-    })
-}
+const mapStateToProps = createStructuredSelector({
+  isLikedPost: getIsLikedPost
+});
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = {
+  createLike,
+  deleteLike,
+  fetchPost
+};
 
-    return ({
-        createLike: like => dispatch(createLike(like)),
-        deleteLike: id => dispatch(deleteLike(id)),
-        fetchPost: id => dispatch(fetchPost(id))
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Likes)
+export default connect(mapStateToProps, mapDispatchToProps)(Likes);

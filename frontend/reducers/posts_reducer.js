@@ -17,6 +17,7 @@ const postsReducer = (state = {}, action) => {
       return action.posts;
     case RECEIVE_POST:
       newState[action.post.id] = action.post;
+
     case REMOVE_POST:
       newState = merge({}, state);
       delete newState[action.postId];
@@ -27,15 +28,37 @@ const postsReducer = (state = {}, action) => {
       );
 
       return newState;
-    case RECEIVE_LIKE:
-      defaultTo(newState[action.like.post_id].likers, []).push(
-        action.like.user_id
-      );
-      //  newState[action.like.post_id].likers.push(action.like.user_id)
+    case RECEIVE_LIKE: {
+      const likers = defaultTo(newState[action.payload.post_id].likers, []);
+      console.log({ action });
+      if (action.payload.action === "remove") {
+        // newState[action.payload.post_id].likers = likers.filter(
+        //   userId => userId === action.payload.user_id
+        // );
+        newState[action.payload.post_id].likers.filter(
+          userId => userId !== action.payload.user_id
+        );
+        debugger;
+      }
+      if (action.payload.action === "new") {
+        debugger;
+        // newState[action.payload.post_id].likers = likers.push(
+        //   action.payload.user_id
+        // );
+        newState[action.payload.post_id].likers.push(action.payload.user);
+      }
+      // defaultTo(newState[action.like.like.post_id].likers, []).push(
+      // action.like.like.user_id
+      // );
+      // newState[action.like.like.postId].likers.push(action.like.like.user_id);
+
       return newState;
-    //  case REMOVE_LIKE:
-    //      newState[action.like.post_id].likers.filter(userId => userId !== action.like.user_id);
-    //      return newState
+    }
+    case REMOVE_LIKE:
+      newState[action.like.post_id].likers.filter(
+        userId => userId !== action.like.user_id
+      );
+      return newState;
 
     default:
       return state;

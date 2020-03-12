@@ -14,4 +14,21 @@ class Post < ApplicationRecord
         through: :likes,
         source: :user
 
+    
+    def liked_by
+        self.likers.map { |user| user.id }
+    end
+
+    # def user_likes 
+    #      array = []
+    #     array
+    # end
+
+    # def liked
+    #     Like.where(user_id: current_user.id, post_id: self.id).present?
+    # end
+
+    def like_count
+        self.likes.size
+    end
 end

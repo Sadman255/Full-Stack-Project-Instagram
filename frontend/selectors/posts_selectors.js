@@ -25,10 +25,8 @@ export const getPostById = createSelector(getPosts, getId, (posts, id) =>
   posts.find(post => post.id === id)
 );
 
-// export const getIsLikedPost = createSelector(
-//   getPostById,
-//   getSessionId,
-//   (post, sessionId) => defaultTo(post && post.userLikes, []).includes(sessionId)
-// );
-// userLikes = [userId1, userId2, userId3]
-// getIsLikedPost(state, { id: postId })
+export const getIsLikedPost = createSelector(
+  getPostById,
+  getSessionId,
+  (post, sessionId) => defaultTo(post && post.userLikes, []).includes(sessionId)
+);
