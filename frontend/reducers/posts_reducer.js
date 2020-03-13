@@ -38,12 +38,11 @@ const postsReducer = (state = {}, action) => {
         newState[action.payload.post_id].likers.filter(
           userId => userId !== action.payload.user_id
         );
-        debugger;
       }
       if (action.payload.action === "new") {
-        debugger;
         // newState[action.payload.post_id].likers = likers.push(
         //   action.payload.user_id
+
         // );
         newState[action.payload.post_id].likers.push(action.payload.user);
       }
