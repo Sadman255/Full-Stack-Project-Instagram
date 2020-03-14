@@ -18,7 +18,7 @@ class NavSearch extends React.Component {
   render() {
     const { users } = this.props;
     const { searchCriteria } = this.state;
-
+    // debugger;
     const matches = users
       .filter(user => user.username.toLowerCase().startsWith(searchCriteria))
       .map(user => {

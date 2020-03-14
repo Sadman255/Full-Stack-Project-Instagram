@@ -1,6 +1,6 @@
 import React from "react";
 
-const Likes = ({ isLikedPost, createLike, id, fetchPost }) => {
+const Likes = ({ isLikedPost, createLike, id, fetchPost, count }) => {
   const handleLike = e => {
     e.preventDefault();
     createLike({ post_id: id }).then(() => fetchPost(id));
@@ -20,6 +20,8 @@ const Likes = ({ isLikedPost, createLike, id, fetchPost }) => {
             </div>
           )}
         </div>
+
+        <div>{count}</div>
       </div>
     </div>
   );

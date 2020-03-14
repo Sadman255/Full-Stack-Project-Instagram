@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { defaultTo } from "lodash";
+import { defaultTo, size } from "lodash";
 
 import { getCommentsByIds } from "./comments_selector";
 import { getSessionId } from "./users_selectors";
@@ -28,5 +28,14 @@ export const getPostById = createSelector(getPosts, getId, (posts, id) =>
 export const getIsLikedPost = createSelector(
   getPostById,
   getSessionId,
-  (post, sessionId) => defaultTo(post && post.userLikes, []).includes(sessionId)
+  (post, sessionId) => {
+    const userLike = defaultTo(post && post.likers, []).find(
+      like => like.user_id === sessionId
+    );
+    return Boolean(userLike);
+  }
+);
+
+export const getNumberOfLikes = createSelector(getPostById, post =>
+  size(post.likers)
 );

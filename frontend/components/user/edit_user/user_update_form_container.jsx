@@ -1,21 +1,19 @@
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import UserUpdateForm from "./user_update_form";
 import { updateUser } from "../../../actions/users_actions";
+import {
+  getCurrentUser,
+  getSessionId
+} from "../../../selectors/users_selectors";
 
-const mapStateToProps = state => {
-  let currentUser = state.entities.users[state.session.id];
-  let userId = currentUser.id;
+const mapStateToProps = createStructuredSelector({
+  currentUser: getCurrentUser,
+  userId: getSessionId
+});
 
-  return {
-    currentUser,
-    userId
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    updateUser: user => dispatch(updateUser(user))
-  };
+const mapDispatchToProps = {
+  updateUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserUpdateForm);

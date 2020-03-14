@@ -3,10 +3,14 @@ import { createStructuredSelector } from "reselect";
 import Likes from "./likes";
 import { createLike, deleteLike } from "../../actions/likes_actions";
 import { fetchPost } from "../../actions/posts_actions";
-import { getIsLikedPost } from "../../selectors/posts_selectors";
+import {
+  getIsLikedPost,
+  getNumberOfLikes
+} from "../../selectors/posts_selectors";
 
 const mapStateToProps = createStructuredSelector({
-  isLikedPost: getIsLikedPost
+  isLikedPost: getIsLikedPost,
+  count: getNumberOfLikes
 });
 
 const mapDispatchToProps = {
