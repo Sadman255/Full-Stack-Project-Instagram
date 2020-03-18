@@ -73,12 +73,9 @@ class PostShow extends React.Component {
       return <h2>Loading...</h2>;
     }
 
-    let postComments = post.comments.map(comment => {
+    let postComments = post.comments.map((comment, index) => {
       return (
-        <div
-          key={comment.id - comment.user_id / 3}
-          className="post-show-comment"
-        >
+        <div key={`${comment.id}-${index}`} className="post-show-comment">
           <Link className="profile-link" to={`/users/${comment.user_id}`}>
             {comment.author}
           </Link>

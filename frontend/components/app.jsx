@@ -10,6 +10,7 @@ import PostFormContainer from "./posts/post/post_form_container";
 import MainProfileContainer from "./user/profile/main_profile_container";
 import UserUpdateFormContainer from "./user/edit_user/user_update_form_container";
 import UserShowContainer from "./user/profile/user_show_container";
+import PostIndexContainer from "./posts/feed/feed_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
@@ -19,7 +20,6 @@ const App = () => (
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignUpFormContainer} />
-
       <ProtectedRoute exact path="/new-post" component={PostFormContainer} />
       <ProtectedRoute
         exact
@@ -32,9 +32,11 @@ const App = () => (
         component={UserUpdateFormContainer}
       />
       <ProtectedRoute path="/my-profile" component={MainProfileContainer} />
-      <ProtectedRoute path="/" component={ExploreIndexContainer} />
-      {/* <ProtectedRoute path="/explore" component={ExploreIndexContainer} />
-      <ProtectedRoute path="/" component={MainProfileContainer} /> */}
+      {/* <ProtectedRoute path="/" component={ExploreIndexContainer} /> */}
+      <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
+      {/* <ProtectedRoute path="/explore" component={ExploreIndexContainer} /> */}
+      <ProtectedRoute exact path="/" component={ExploreIndexContainer} />
+      {/* <ProtectedRoute path="/" component={MainProfileContainer} /> */}
     </Switch>
   </div>
 );

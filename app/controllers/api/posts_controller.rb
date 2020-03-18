@@ -14,14 +14,12 @@ class Api::PostsController < ApplicationController
         @posts = Post.where(user_id: params[:id])
         render :index
     end
-
-    def enhanced_posts 
-        
-       Post.all.each do |post| 
-         post.user_likes << post.liked_by
-       end
-       post.user_likes
+    
+    def feed_posts 
+        @posts = Post.where(user_id: current_user.followings.ids)
+        render :index
     end
+    
 
     def show 
         @post = Post.find(params[:id])

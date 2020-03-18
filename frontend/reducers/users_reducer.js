@@ -6,6 +6,7 @@ import {
   RECEIVE_ALL_USERS,
   REMOVE_USER
 } from "../actions/users_actions";
+import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/followings_actions";
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -20,6 +21,24 @@ const usersReducer = (state = {}, action) => {
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
     case REMOVE_USER:
       delete newState[action.user.id];
+      return newState;
+    case RECEIVE_FOLLOW:
+      newState[action.follow.followed_user_id].followerIds.push(
+        action.follow.user_id
+      );
+      newState[action.follow.user_id].followingIds.push(
+        action.follow.followed_user_id
+      );
+      return newState;
+    case REMOVE_FOLLOW:
+      newState[action.follow.followed_user_id].followerIds = newState[
+        action.follow.followed_user_id
+      ].followerIds.filter(userId => userId !== action.follow.user_id);
+      newState[action.follow.user_id].followingIds = newState[
+        action.follow.user_id
+      ].followingIds.filter(
+        followedId => followedId !== action.follow.followed_user_id
+      );
       return newState;
     default:
       return state;

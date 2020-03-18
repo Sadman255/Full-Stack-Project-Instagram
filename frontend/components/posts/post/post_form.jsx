@@ -1,6 +1,7 @@
 import React from "react";
 import NavBarContainer from "../../nav_bar/nav_bar_container";
 import { withRouter } from "react-router-dom";
+import { FaCamera } from "react-icons/fa";
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -81,7 +82,8 @@ class PostForm extends React.Component {
       postPreview = (
         <div className="preview-div">
           <div className="preview-outline">
-            <i className="fa fa-camera"></i>
+            {/* <i className="fa fa-camera"></i> */}
+            <FaCamera />
           </div>
         </div>
       );

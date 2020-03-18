@@ -1,49 +1,54 @@
-import {connect} from 'react-redux';
-import { fetchUser,deleteUser } from "../../../actions/users_actions";
-import {fetchProfilePosts} from "../../../actions/posts_actions";
-import { logout } from '../../../actions/session_actions';
+import { connect } from "react-redux";
+import { fetchUser, deleteUser } from "../../../actions/users_actions";
+import { fetchProfilePosts } from "../../../actions/posts_actions";
+import { logout } from "../../../actions/session_actions";
 
-import UserShow from './user_show';
-import {openModal,closeModal} from '../../../actions/modal_actions';
+import UserShow from "./user_show";
+import { openModal, closeModal } from "../../../actions/modal_actions";
 
-const mapStateToProps = (state,ownProps) => {
-    const profileId = ownProps.match.params.userId 
-    const profileUser = state.entities.users[profileId]
+import {
+  createFollow,
+  deleteFollow
+} from "../../../actions/followings_actions";
 
-    let userPosts = null;
+const mapStateToProps = (state, ownProps) => {
+  const profileId = ownProps.match.params.userId;
+  const profileUser = state.entities.users[profileId];
 
-    // let followerIds = null;
-    // let followStatus = false;
+  let userPosts = null;
 
-    let currentUser = state.entities.users[state.session.id];
+  let followerIds = null;
+  let followStatus = false;
 
-    if (profileUser) {
-        userPosts = Object.values(state.entities.posts)
-            .filter(post => post.user_id === profileUser.id)
-            
-            // followerIds = profileUser.followerIds,
-            // followStatus = (followerIds.includes(currentUser.id))
-    }
+  let currentUser = state.entities.users[state.session.id];
 
-    return {
-        currentUser,
-        userPosts,
-        profileUser
-        // followerIds,
-        // followStatus
-    }
-}
+  if (profileUser) {
+    userPosts = Object.values(state.entities.posts).filter(
+      post => post.user_id === profileUser.id
+    );
+
+    (followerIds = profileUser.followerIds),
+      (followStatus = followerIds.includes(currentUser.id));
+  }
+
+  return {
+    currentUser,
+    userPosts,
+    profileUser,
+    followerIds,
+    followStatus
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout()),
-    fetchProfilePosts: id => dispatch(fetchProfilePosts(id)),
-    fetchUser: userId => dispatch(fetchUser(userId)),
-    deleteUser: id => dispatch(deleteUser(id)),
-    //  Need to pass in create and delete follow later
-    // 
-    openModal: data => dispatch(openModal("photoShow",data)),
-    closeModal: () => dispatch(closeModal())
-
+  logout: () => dispatch(logout()),
+  fetchProfilePosts: id => dispatch(fetchProfilePosts(id)),
+  fetchUser: userId => dispatch(fetchUser(userId)),
+  deleteUser: id => dispatch(deleteUser(id)),
+  createFollow: follow => dispatch(createFollow(follow)),
+  deleteFollow: follow => dispatch(deleteFollow(follow)),
+  openModal: data => dispatch(openModal("photoShow", data)),
+  closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(UserShow)
+export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

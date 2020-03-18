@@ -5,25 +5,13 @@ import PostShowContainer from "./posts/post/post_show_container";
 import CommentErrorModal from "./posts/feed/comment_error_modal";
 
 function Modal({ modal, closeModal }) {
-  if (!modal) {
-    return null;
-  }
-  let component;
+  if (!modal) return null;
 
-  switch (modal.type) {
-    case "photoShow":
-      component = <PostShowContainer data={modal.data} />;
-      break;
-    case "commentError":
-      component = <CommentErrorModal />;
-      break;
-    default:
-      return null;
-  }
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
-        {component}
+        {modal.type === "photoShow" && <PostShowContainer data={modal.data} />}
+        {modal.type === "commentError" && <CommentErrorModal />}
       </div>
     </div>
   );
