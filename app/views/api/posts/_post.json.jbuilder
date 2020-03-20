@@ -1,6 +1,6 @@
 json.extract! post, :id, :user_id, :body, :created_at
 json.author post.user.username
-# json.authorPhotoUrl url_for(post.user.photo)
+json.authorPhotoUrl url_for(post.user.photo)
 json.photoUrl url_for(post.photo)
 
 

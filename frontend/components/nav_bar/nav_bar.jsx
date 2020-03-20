@@ -24,7 +24,7 @@ class NavBar extends React.Component {
               <i className="fas fa-camera"></i>
             </Link>
           </div>
-          <Link className="nav-link-logo animated jackInTheBox" to="/">
+          <Link className="nav-link-logo animated jackInTheBox" to={`/feed`}>
             <FaInstagram /> InstaThrones
           </Link>
         </div>

@@ -2,6 +2,10 @@ class Api::UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
+
+         @user.photo.attach(io: File.open("#{Rails.root}/app/assets/images/got_profile.png"), filename: 
+         "got_profile.png")
+         @user.bio = ""
         
         if @user.save 
             login(@user)

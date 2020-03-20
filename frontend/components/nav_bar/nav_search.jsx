@@ -29,7 +29,7 @@ class NavSearch extends React.Component {
             onClick={() => this.setState({ searchCriteria: "" })}
           >
             <Link className="search-result-user" to={`/users/${user.id}`}>
-              {/* <img  className="search-result-image" src={user.photoUrl}/> */}
+              <img className="search-result-image" src={user.photoUrl} />
               <div className="search-result-username">{user.username}</div>
             </Link>
           </li>
