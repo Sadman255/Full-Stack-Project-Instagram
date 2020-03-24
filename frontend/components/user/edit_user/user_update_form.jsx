@@ -34,7 +34,6 @@ class UserUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     if (this.props.currentUser.username === "OzzieTheVampire_Demo") {
       window.alert(
         "Unable to modify the demo user. In order to test out this feature please try making a new account first"
@@ -45,6 +44,10 @@ class UserUpdateForm extends React.Component {
       formData.append("user[bio]", this.state.bio);
       formData.append("user[username]", this.state.username);
       formData.append("user[email]", this.state.email);
+
+      //   if (this.state.photoUrl) {
+      //     formData.append("user[photo]", this.state.photoFile);
+      //   }
 
       if (this.state.photoFile) {
         formData.append("user[photo]", this.state.photoFile);

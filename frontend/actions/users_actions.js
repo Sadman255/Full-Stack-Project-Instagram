@@ -32,5 +32,10 @@ export const fetchUser = userId => dispatch =>
 export const deleteUser = id => dispatch =>
   UserApiUtil.deleteUser(id).then(() => dispatch(removeUser(user)));
 
-export const updateUser = user => dispatch =>
-  UserApiUtil.updateUser(user).then(user => dispatch(receiveUser(user)));
+export const updateUser = (formData, userId) => dispatch =>
+  UserApiUtil.updateUser(formData, userId).then(user =>
+    dispatch(receiveUser(user))
+  );
+
+// export const updateUser = user => dispatch =>
+//   UserApiUtil.updateUser(user).then(user => dispatch(receiveUser(user)));
