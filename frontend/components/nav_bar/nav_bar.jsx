@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
 import { FaCompass } from "react-icons/fa";
 import { GiStoneThrone } from "react-icons/gi";
+import { AiFillHome } from "react-icons/ai";
 import NavSearchContainer from "./nav_search_container";
 
 class NavBar extends React.Component {
@@ -20,9 +21,9 @@ class NavBar extends React.Component {
       <section className="nav-bar-container">
         <div className="nav-left">
           <div className="nav-left-index">
-            <Link className="nav-icon" to={`/feed`}>
-              <i className="fas fa-camera"></i>
-            </Link>
+            {/* <Link className="nav-icon" to={`/feed`}>
+              <AiFillHome />
+            </Link> */}
           </div>
           <Link className="nav-link-logo animated jackInTheBox" to={`/feed`}>
             <FaInstagram /> InstaThrones
@@ -34,6 +35,11 @@ class NavBar extends React.Component {
         </div>
 
         <div className="nav-right">
+          <div className="nav-home">
+            <Link className="nav-icon" to={`/feed`}>
+              <AiFillHome />
+            </Link>
+          </div>
           <div className="nav-right-index">
             <Link className="nav-icon" to={`/`}>
               {

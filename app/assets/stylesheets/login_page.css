@@ -1,186 +1,173 @@
 .login-form-container {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #e6e6e6;
-    background: white;
-    width: 350px;
-    height: 400px;
-    margin-top: 12px;
-    border-radius: 2px;
-    align-items: stretch;
-    margin: 0 0 10px;
-    padding: 10px 0;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #e6e6e6;
+  background: white;
+  width: 350px;
+  height: 400px;
+  margin-top: 12px;
+  border-radius: 2px;
+  align-items: stretch;
+  margin: 0 0 10px;
+  padding: 10px 0;
+  text-align: center;
 }
 
 .login-page-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 80px;
-    background-image: url(https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg);
-  
-    
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  background-image: url(https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg);
 }
 
 .login-page-right {
-    color: #262626;
-    justify-content: center;
-    max-width: 350px;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-right: 500px;
-    font-family: 'Roboto', sans-serif;
+  color: #262626;
+  justify-content: center;
+  max-width: 350px;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-right: 500px;
+  font-family: "Roboto", sans-serif;
 }
 
 .login-left-image-container {
-    position: relative
+  position: relative;
 }
-
 
 .login-page-left {
-    display: flex;
-    justify-content: center;
-    margin-left: 500px;
-    width: 425px;
+  display: flex;
+  justify-content: center;
+  margin-left: 500px;
+  width: 425px;
 
-    height: 620px;
-
+  height: 620px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .login-left-image {
-    width: 470px;
-    height: 620px;
+  width: 470px;
+  height: 620px;
 }
 
 .login-left-image-inner {
-    z-index: 1;
-    position: absolute;
-    right: 64px;
-    width: 250px;
-    top: 99px;
-    height: 430px;
+  z-index: 1;
+  position: absolute;
+  right: 64px;
+  width: 250px;
+  top: 99px;
+  height: 430px;
 }
 
 .login-left-image-inner-2 {
-    z-index: 2;
-    position: absolute;
-    right: 64px;
-    width: 250px;
-    top: 112px;
-    height: 390px;
-    object-fit: cover;
+  z-index: 2;
+  position: absolute;
+  right: 64px;
+  width: 250px;
+  top: 112px;
+  height: 390px;
+  object-fit: cover;
 }
 .login-form {
-    color: darkgrey;
-    font-weight: 900;
+  color: darkgrey;
+  font-weight: 900;
 }
 
 .login-input {
-    text-align: left;
-    width: 250px;
-    height: 40px;
-    background-color: #fafafa;
-    padding-left: 5px;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    margin: 3px;
-    border-radius: 3px;
-    border: 1px solid #efefef;
-    box-sizing: border-box;
+  text-align: left;
+  width: 250px;
+  height: 40px;
+  background-color: #fafafa;
+  padding-left: 5px;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  margin: 3px;
+  border-radius: 3px;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
 }
 
 .hide {
-    color: white;
+  color: white;
 }
 .login-errors {
-    color: red;
-    list-style: none;
-    padding-left: 0px;
+  color: red;
+  list-style: none;
+  padding-left: 0px;
 }
 
 .login-errors-ul {
-    height: 40px;
-    width: 100%;
-    text-align: left;
-    /* margin-left: 50px; */
+  height: 40px;
+  width: 100%;
+  text-align: left;
+  margin-left: 15px;
 }
 
 .login-logo {
-    font-family: 'Satisfy', cursive;
-    font-weight: 80;
-    margin-bottom: 20px;
+  font-family: "Satisfy", cursive;
+  font-weight: 80;
+  margin-bottom: 20px;
 }
 .login-signup-link a {
-    text-decoration: none;
-    font-weight: bolder;
-    color: #3897f0;
+  text-decoration: none;
+  font-weight: bolder;
+  color: #3897f0;
 }
 
-.session-submit, .new-user-submit {
-    width: 250px;
-    height: 40px;
-    background-color: #fafafa;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    font-weight: 700;
-    color: white;
-    margin: 3px;
-    border-radius: 3px;
-    border: 1px solid #efefef;
-    box-sizing: border-box;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background-color: #3897f0;
-    border: 1px solid #3897f0;
-    border-radius: 4px;
-    outline: none;
-    border: 1px solid  #fafafa;;
+.session-submit,
+.new-user-submit {
+  width: 250px;
+  height: 40px;
+  background-color: #fafafa;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin: 3px;
+  border-radius: 3px;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #fafafa;
 }
 
 .login {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .session-submit a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    text-decoration: none;
-    margin-top: 7px;
-    font-size: 16px;
-    color: white;
-    display: flex;
-    justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  text-decoration: none;
+  margin-top: 7px;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .demo {
-    background-color: rgb(20, 186, 20);
+  background-color: rgb(20, 186, 20);
 }
 
-.session-submit:hover, .new-user-submit {
-    cursor: pointer;
+.session-submit:hover,
+.new-user-submit {
+  cursor: pointer;
 }
 
 .login-signup-link {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #e6e6e6;
-    background: white;
-    width: 100%;
-    border-radius: 2px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #e6e6e6;
+  background: white;
+  width: 100%;
+  border-radius: 2px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* #cf3 img {
@@ -192,37 +179,39 @@
 
 @keyframes cf3FadeInOut {
   0% {
-    opacity:1;
+    opacity: 1;
   }
   20% {
-    opacity:1;
+    opacity: 1;
   }
   40% {
-    opacity:0;
+    opacity: 0;
   }
   92% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:0;
+    opacity: 0;
   }
 }
 
-.animate-1, .animate-2, .animate-3 { 
-animation-name: cf3FadeInOut;
-animation-timing-function: ease-in-out;
-animation-iteration-count: infinite;
-animation-duration: 10s;
-animation-direction: alternate;
-z-index: 3;
+.animate-1,
+.animate-2,
+.animate-3 {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  z-index: 3;
 }
 
 .animate-1 {
-    animation-delay: 8s;
+  animation-delay: 8s;
 }
 .animate-2 {
-    animation-delay: 4s;
+  animation-delay: 4s;
 }
 .animate-3 {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
