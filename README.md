@@ -76,6 +76,9 @@ InstaThrones features Amazon Web Services to host uploaded images. Users are abl
 
 Users are able to like and comment on photos from the image modal as well as the image feed, which renders posts from other member  which the current user is following.  
 
+<img width="1420" alt="Screen Shot 2020-04-10 at 11 07 42 PM" src="https://user-images.githubusercontent.com/53314634/79033949-73f9c300-7b80-11ea-81e1-575ec3f5b149.png">
+
+
 
 ## Following/Unfollowing Other Users 
 
