@@ -15,7 +15,7 @@
 
 
 ## Summary
- InstaThrones is a social networking application inspired by Instagram. InstaThrones features fictional characters from one of the most popular TV shows Game of Thrones. The application focuses on image sharing and allows users to connect with each other.
+ [InstaThrones](https://instathrones.herokuapp.com/#/login) is a social networking application inspired by Instagram. InstaThrones features fictional characters from one of the most popular TV shows Game of Thrones. The application focuses on image sharing and allows users to connect with each other.
  Image hosting for this application utilizes Amazon Web Services S3 cloud storage.The backend of InstaThrones uses Ruby on Rails and PostgresSQL, allowing for database queries to run effiecently utilizing RESTful API routes. The frontend incorporates React.js with a Redux framework. This enables InstaThrones to a have a state management library to optimize both logging changes to data, and persisting data throughout navagation.
  
  ## Features 
